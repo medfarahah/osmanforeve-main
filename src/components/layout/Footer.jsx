@@ -1,4 +1,4 @@
-import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
+import { FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa'
 import Container from '../ui/Container'
 
 const Footer = () => {
@@ -76,13 +76,11 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="https://wa.me/13689976905"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-[#25D366] hover:text-[#20BA5A] transition-colors text-sm group"
+                  href="tel:+13689976905"
+                  className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm group"
                 >
-                  <FaWhatsapp className="text-lg group-hover:scale-110 transition-transform" />
-                  WhatsApp Contact
+                  <FaPhone className="text-lg group-hover:scale-110 transition-transform" />
+                  +1 (368) 997-6905
                 </a>
               </li>
               <li>

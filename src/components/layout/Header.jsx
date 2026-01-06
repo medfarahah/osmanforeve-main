@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaBars, FaTimes, FaWhatsapp } from 'react-icons/fa'
+import { FaBars, FaTimes } from 'react-icons/fa'
 import Container from '../ui/Container'
 import Button from '../ui/Button'
+import ThemeToggle from '../ui/ThemeToggle'
 
 const Header = ({ activeSection }) => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -45,8 +46,8 @@ const Header = ({ activeSection }) => {
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg' 
-          : 'bg-white/90 backdrop-blur-sm'
+          ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg dark:shadow-gray-800/50' 
+          : 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -87,8 +88,8 @@ const Header = ({ activeSection }) => {
                 onClick={() => scrollToSection(item.id)}
                 className={`px-4 py-2 rounded-lg font-medium transition-all ${
                   activeSection === item.id
-                    ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/30'
-                    : 'text-gray-700 hover:bg-gray-100'
+                    ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/30 dark:bg-primary-600'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -100,15 +101,7 @@ const Header = ({ activeSection }) => {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button
-              variant="whatsapp"
-              size="sm"
-              href="https://wa.me/13689976905"
-              target="_blank"
-              icon={<FaWhatsapp />}
-            >
-              WhatsApp
-            </Button>
+            <ThemeToggle />
             <Button
               variant="primary"
               size="sm"
@@ -136,7 +129,7 @@ const Header = ({ activeSection }) => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              className="lg:hidden absolute top-full left-0 right-0 bg-white border-t shadow-xl"
+              className="lg:hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-900 border-t dark:border-gray-800 shadow-xl"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
@@ -149,8 +142,8 @@ const Header = ({ activeSection }) => {
                     onClick={() => scrollToSection(item.id)}
                     className={`px-4 py-3 rounded-lg font-medium text-left transition-all ${
                       activeSection === item.id
-                        ? 'bg-primary-500 text-white'
-                        : 'text-gray-700 hover:bg-gray-100'
+                        ? 'bg-primary-500 dark:bg-primary-600 text-white'
+                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                     }`}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -159,16 +152,11 @@ const Header = ({ activeSection }) => {
                     {item.label}
                   </motion.button>
                 ))}
-                <div className="flex flex-col gap-2 mt-4 pt-4 border-t">
-                  <Button
-                    variant="whatsapp"
-                    href="https://wa.me/13689976905"
-                    target="_blank"
-                    icon={<FaWhatsapp />}
-                    className="w-full"
-                  >
-                    WhatsApp
-                  </Button>
+                <div className="flex flex-col gap-2 mt-4 pt-4 border-t dark:border-gray-700">
+                  <div className="flex items-center justify-between px-4 py-2">
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Theme</span>
+                    <ThemeToggle />
+                  </div>
                   <Button
                     variant="primary"
                     onClick={() => scrollToSection('contact')}

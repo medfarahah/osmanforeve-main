@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FaWhatsapp, FaAward, FaStar } from 'react-icons/fa'
+import { FaAward, FaStar } from 'react-icons/fa'
 import Container from '../ui/Container'
 import Button from '../ui/Button'
 
@@ -84,13 +84,11 @@ const Hero = () => {
                 View Products
               </Button>
               <Button
-                variant="whatsapp"
+                variant="secondary"
                 size="lg"
-                href="https://wa.me/13689976905"
-                target="_blank"
-                icon={<FaWhatsapp />}
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                WhatsApp
+                Contact Us
               </Button>
             </motion.div>
           </motion.div>

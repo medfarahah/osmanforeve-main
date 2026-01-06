@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { ThemeProvider } from './context/ThemeContext'
 import Header from './components/layout/Header'
 import Hero from './components/sections/Hero'
 import Achievements from './components/sections/Achievements'
@@ -8,7 +9,6 @@ import About from './components/sections/About'
 import FAQ from './components/sections/FAQ'
 import Contact from './components/sections/Contact'
 import Footer from './components/layout/Footer'
-import WhatsAppFloat from './components/ui/WhatsAppFloat'
 import ScrollToTop from './components/ui/ScrollToTop'
 
 function App() {
@@ -36,21 +36,22 @@ function App() {
   }, [])
 
   return (
-    <div className="min-h-screen">
-      <Header activeSection={activeSection} />
-      <main>
-        <Hero />
-        <Achievements />
-        <Products />
-        <Services />
-        <About />
-        <FAQ />
-        <Contact />
-      </main>
-      <Footer />
-      <WhatsAppFloat />
-      <ScrollToTop />
-    </div>
+    <ThemeProvider>
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <Header activeSection={activeSection} />
+        <main>
+          <Hero />
+          <Achievements />
+          <Products />
+          <Services />
+          <About />
+          <FAQ />
+          <Contact />
+        </main>
+        <Footer />
+        <ScrollToTop />
+      </div>
+    </ThemeProvider>
   )
 }
 

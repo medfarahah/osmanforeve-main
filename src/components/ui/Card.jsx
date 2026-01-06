@@ -7,8 +7,8 @@ const Card = ({
   delay = 0,
   ...props 
 }) => {
-  const baseClasses = 'bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden'
-  const hoverClasses = hover ? 'hover:shadow-2xl hover:-translate-y-1 transition-all duration-300' : ''
+  const baseClasses = 'bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-gray-900/50 border border-gray-100 dark:border-gray-700 overflow-hidden'
+  const hoverClasses = hover ? 'hover:shadow-2xl dark:hover:shadow-gray-900 hover:-translate-y-1 transition-all duration-300' : ''
   
   return (
     <motion.div

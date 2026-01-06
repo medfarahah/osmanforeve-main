@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaLeaf, FaQuestionCircle, FaWhatsapp, FaChevronDown } from 'react-icons/fa'
+import { FaLeaf, FaQuestionCircle, FaChevronDown, FaEnvelope } from 'react-icons/fa'
 import Container from '../ui/Container'
 import SectionTitle from '../ui/SectionTitle'
 import Button from '../ui/Button'
@@ -138,13 +138,12 @@ const FAQ = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
-              variant="whatsapp"
+              variant="primary"
               size="lg"
-              href="https://wa.me/13689976905"
-              target="_blank"
-              icon={<FaWhatsapp />}
+              onClick={scrollToContact}
+              icon={<FaEnvelope />}
             >
-              WhatsApp Contact
+              Contact Us
             </Button>
             <Button
               variant="secondary"

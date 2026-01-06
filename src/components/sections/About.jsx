@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FaWhatsapp, FaUserTie, FaBuilding, FaCheckCircle } from 'react-icons/fa'
+import { FaEnvelope, FaUserTie, FaBuilding, FaCheckCircle } from 'react-icons/fa'
 import Container from '../ui/Container'
 import SectionTitle from '../ui/SectionTitle'
 import Card from '../ui/Card'
@@ -98,10 +98,9 @@ const About = () => {
 
                 {/* CTA */}
                 <Button
-                  variant="whatsapp"
-                  href="https://wa.me/13689976905"
-                  target="_blank"
-                  icon={<FaWhatsapp />}
+                  variant="primary"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  icon={<FaEnvelope />}
                   className="w-full"
                   size="sm"
                 >

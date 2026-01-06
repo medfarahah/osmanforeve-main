@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FaLeaf, FaInfoCircle, FaWhatsapp } from 'react-icons/fa'
+import { FaLeaf, FaInfoCircle } from 'react-icons/fa'
 import Container from '../ui/Container'
 import SectionTitle from '../ui/SectionTitle'
 import Card from '../ui/Card'
@@ -39,18 +39,6 @@ const Products = () => {
 
   const scrollToFAQ = () => {
     document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  // Generate WhatsApp URL with product information
-  const getWhatsAppLink = (product) => {
-    const message = `Hi! I'm interested in *${product.title}* - ${product.subtitle}
-
-I would like to know more about:
-${product.benefits.map(benefit => `✓ ${benefit}`).join('\n')}
-
-Could you please provide more information about this product?`
-    
-    return `https://wa.me/13689976905?text=${encodeURIComponent(message)}`
   }
 
   return (
@@ -136,25 +124,14 @@ Could you please provide more information about this product?`
                   </button>
                 </div>
 
-                {/* CTA Buttons */}
-                <div className="flex gap-3">
-                  <Button
-                    variant="whatsapp"
-                    href={getWhatsAppLink(product)}
-                    target="_blank"
-                    icon={<FaWhatsapp />}
-                    className="flex-1"
-                  >
-                    WhatsApp
-                  </Button>
-                  <Button
-                    variant="secondary"
-                    onClick={scrollToContact}
-                    className="flex-1"
-                  >
-                    Contact
-                  </Button>
-                </div>
+                {/* CTA Button */}
+                <Button
+                  variant="primary"
+                  onClick={scrollToContact}
+                  className="w-full"
+                >
+                  Get Information
+                </Button>
               </div>
             </Card>
           ))}
